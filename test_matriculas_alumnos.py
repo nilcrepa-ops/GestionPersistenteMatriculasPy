@@ -1,36 +1,18 @@
 import sys
 from pathlib import Path
-
-# Asegurar que el directorio raíz del proyecto esté en el sys.path
-BASE_DIR = Path(__file__).resolve().parent
-if str(BASE_DIR) not in sys.path:
-    sys.path.insert(0, str(BASE_DIR))
-
 from dominio.alumno import Alumno
 from servicio.alumnos_matriculados import AlumnosMatriculados
 
-
 def menu() -> None:
-    """
-    Función principal que implementa el flujo y menú del sistema de matrículas.
-    Responsabilidades:
-    Contiene un menú con 4 opciones:
-    1) Matricular alumno
-    2) Listar alumnos
-    3) Eliminar archivo de alumnos
-    4) Salir
-    """
+
     opcion = None
 
     while opcion != "4":
-        print("\n" + "=" * 40)
-        print("    SISTEMA DE MATRÍCULAS DE ALUMNOS    ")
-        print("=" * 40)
+        print("SISTEMA DE MATRÍCULAS DE ALUMNOS:")
         print("1) Matricular alumno")
         print("2) Listar alumnos")
         print("3) Eliminar archivo de alumnos")
         print("4) Salir")
-        print("=" * 40)
 
         opcion = input("Seleccione una opción (1-4): ").strip()
 
@@ -55,7 +37,7 @@ def menu() -> None:
                 print("Operación cancelada.")
 
         elif opcion == "4":
-            print("\nSaliendo del programa. ¡Hasta pronto!")
+            print("\nSaliendo del programa.")
 
         else:
             print("Opción inválida. Por favor, seleccione un número entre 1 y 4.")
@@ -65,4 +47,4 @@ if __name__ == "__main__":
     try:
         menu()
     except (KeyboardInterrupt, EOFError):
-        print("\n\nPrograma interrumpido por el usuario. Saliendo...")
+        print("\nPrograma interrumpido por el usuario. Saliendo...")
